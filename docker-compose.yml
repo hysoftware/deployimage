@@ -1,0 +1,19 @@
+version: '2'
+services:
+  webapp:
+    build: ./webapp
+    ports:
+      - 80:8888
+    links:
+      - mongodb
+
+  mongodb:
+    build: ./mongodb
+    volumes:
+      - "db:/db"
+    expose:
+      - 27017
+
+volumes:
+  db:
+    driver: local
