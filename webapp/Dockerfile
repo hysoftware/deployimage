@@ -1,4 +1,4 @@
-FROM hysoftware/baseimage
+FROM hysoftware/global-dep-image
 
 MAINTAINER Hiroaki Yamamoto
 
