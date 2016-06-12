@@ -8,6 +8,7 @@ services:
       - mongodb
     environment:
       db_url: "mongodb://mongodb/hysoft"
+      repo: /home/hysoft/venv/webapp
 
   mongodb:
     build: ./mongodb
