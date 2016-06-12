@@ -2,12 +2,7 @@ FROM hysoftware/global-dep-image
 
 MAINTAINER Hiroaki Yamamoto
 
-ENV host 0.0.0.0
-ENV port 8888
 ENV node_mode production
-
-COPY ./runserver.sh /usr/bin
-RUN chmod og+rx /usr/bin/runserver.sh
 
 RUN useradd -m hysoft
 USER hysoft
@@ -23,6 +18,11 @@ RUN npm install
 RUN npm test
 RUN rm -rf node_module frontend_coverage .coverage
 ENV mode production
+
+USER root
+COPY ./runserver.sh /usr/bin
+RUN chmod og+rx /usr/bin/runserver.sh
+USER hysoft
 
 ENTRYPOINT ["runserver.sh"]
 EXPOSE 80
