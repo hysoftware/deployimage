@@ -6,6 +6,8 @@ services:
       - 80:8888
     links:
       - mongodb
+    environment:
+      db_url: "mongodb://mongodb/hysoft"
 
   mongodb:
     build: ./mongodb
